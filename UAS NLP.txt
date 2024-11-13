@@ -1,0 +1,125 @@
+### **Judul Proyek:**
+**"Aplikasi Pencarian Informasi Obat Berbasis Knowledge Graph untuk Sistem Pemulihan Kesehatan"**
+
+---
+
+### **Pendahuluan**
+Dalam dunia medis, mencari informasi yang relevan tentang obat, efek sampingnya, atau produsennya sering kali menjadi tantangan. Oleh karena itu, kami mengembangkan sistem **Knowledge Graph** berbasis web untuk menjawab query pengguna mengenai obat dan hubungan-hubungannya, seperti indikasi, efek samping, dan manufaktur, menggunakan data terstruktur yang divisualisasikan secara interaktif.
+
+---
+
+### **Definisi Knowledge Graph**
+**Knowledge Graph (KG)** adalah representasi data dalam bentuk graf yang memodelkan hubungan semantik antara entitas. Dalam kasus ini:
+- **Node (Entitas):** Obat, efek samping, indikasi, komposisi, manufaktur.
+- **Edges (Relasi):** Hubungan semantik seperti "memiliki efek samping," "dibuat oleh," "mengobati," dan "mengandung."
+
+---
+
+### **Fungsi Knowledge Graph dalam Proyek**
+1. **Menghubungkan Data Medis Secara Semantik:**
+   - Mengorganisasikan data obat dengan hubungan yang jelas antara komponen.
+   - Membantu memahami bagaimana obat, efek samping, dan produsennya terhubung.
+
+2. **Meningkatkan Pencarian Informasi:**
+   - Memahami query berbasis semantik untuk memberikan jawaban yang relevan.
+   - Misalnya, menemukan efek samping atau indikasi dari obat tertentu.
+
+3. **Visualisasi Interaktif:**
+   - Menyediakan cara intuitif bagi pengguna untuk memahami hubungan antar entitas.
+
+---
+
+### **Teori dan Dasar Metodologi**
+1. **Representasi Data dengan Graf:**
+   - Data obat dipresentasikan sebagai graf yang memanfaatkan teori graf dari matematika diskrit.
+   - Graf berarah (directed graph) digunakan karena hubungan antara entitas memiliki arah.
+
+2. **Pemrosesan Query Semantik:**
+   - Pendekatan semantik digunakan untuk memahami maksud pengguna melalui entitas (mis., obat) dan relasi (mis., efek samping).
+
+3. **Teknologi yang Digunakan:**
+   - **NetworkX:** Untuk membangun dan mengelola graf.
+   - **Flask:** Untuk menangani API query dari pengguna.
+   - **Dash:** Untuk visualisasi graf dan hasil query interaktif.
+
+4. **Interaksi dengan Data:**
+   - Data diproses dan dinormalisasi untuk menciptakan hubungan terstruktur, memudahkan query dan visualisasi.
+
+---
+
+### **Algoritma Proyek**
+1. **Persiapan Data:**
+   - Data diunggah dan diproses untuk menghapus nilai kosong dan membuat hubungan semantik antar entitas.
+   - Data diubah menjadi Knowledge Graph menggunakan `NetworkX`.
+
+2. **Pembangunan Knowledge Graph:**
+   - Setiap entitas seperti obat, efek samping, komposisi, dll., menjadi node.
+   - Relasi antara entitas (mis., "memiliki efek samping") menjadi edge.
+
+3. **Implementasi Flask API:**
+   - Query diterima melalui endpoint `/query` dengan parameter:
+     - **Entity:** Nama entitas, seperti nama obat.
+     - **Relation:** Jenis hubungan, seperti "memiliki efek samping."
+   - API memproses query dengan mencari hubungan dalam Knowledge Graph.
+
+4. **Visualisasi dengan Dash:**
+   - **Graf Interaktif:** Menampilkan Knowledge Graph lengkap menggunakan Plotly.
+   - **Input Query:** Dropdown memungkinkan pengguna memilih entitas dan relasi.
+   - **Hasil Query:** Jawaban ditampilkan langsung di antarmuka Dash.
+
+5. **Pengolahan Query:**
+   - Entitas yang dipilih pengguna diverifikasi dalam graf.
+   - Semua node yang terkait dengan entitas dan relasi yang diminta dikembalikan.
+
+---
+
+### **Output Akhir**
+1. **API JSON:**
+   - Endpoint `/query` mengembalikan hasil dalam format JSON:
+     ```json
+     {
+       "results": ["Efek samping 1", "Efek samping 2"]
+     }
+     ```
+
+2. **Antarmuka Dash:**
+   - Visualisasi Knowledge Graph.
+   - Input dropdown untuk memilih entitas dan relasi.
+   - Hasil query ditampilkan di antarmuka pengguna secara interaktif.
+
+---
+
+### **Keunggulan Pendekatan Knowledge Graph**
+1. **Struktur Data yang Jelas:**
+   - Data disusun dengan hubungan semantik, memudahkan analisis dan pencarian.
+   
+2. **Skalabilitas:**
+   - Knowledge Graph dapat diperluas dengan menambahkan entitas dan relasi baru.
+
+3. **Interaktivitas:**
+   - Antarmuka berbasis graf membantu pengguna memahami hubungan data secara visual.
+
+4. **Fleksibilitas Query:**
+   - Pengguna dapat bertanya tentang efek samping, komposisi, atau indikasi obat.
+
+---
+
+### **Potensi Pengembangan Lanjutan**
+1. **Integrasi Neo4j:**
+   - Menggunakan database graf untuk mendukung Knowledge Graph skala besar.
+   
+2. **Natural Language Processing (NLP):**
+   - Memahami query berbasis bahasa alami tanpa memerlukan dropdown.
+   
+3. **Penambahan Data Realtime:**
+   - Integrasi dengan sumber data eksternal untuk memperbarui graf secara dinamis.
+
+4. **Penerapan di Bidang Lain:**
+   - Teknologi ini dapat diterapkan untuk sistem rekomendasi, pencarian legalitas, dan lain-lain.
+
+---
+
+### **Kesimpulan**
+Proyek ini berhasil memanfaatkan Knowledge Graph untuk menciptakan aplikasi pencarian informasi obat yang interaktif dan intuitif. Dengan visualisasi graf dan query semantik, pengguna dapat dengan mudah mendapatkan informasi medis yang relevan.
+
+Apakah ada bagian yang perlu dijelaskan lebih dalam atau penyesuaian tambahan? 😊
